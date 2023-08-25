@@ -27,7 +27,12 @@ function colorGrid(tile) {
 }
 
 function resetGrid() {
-    location.reload()
+    // Get NodeList of all Columns to be removed
+    const pendingRemovalColumns = document.getElementsByClassName('column')
+    // Remove all elements from the Node List
+    while (pendingRemovalColumns.length > 0) {
+        pendingRemovalColumns[0].parentNode.removeChild(pendingRemovalColumns[0])
+    }
 }
 
 function getParams() {
@@ -37,6 +42,7 @@ function getParams() {
         rowCount = parseInt(newRowCount)
         columnCount = parseInt(newColumnCount)
         resetGrid()
+        displayGame()
     } else {
         alert("Invalid Input")
     }
