@@ -1,6 +1,6 @@
 function displayGame() {
     let i = 0;
-    for (let i = 0; i < 16; i++){
+    for (let i = 0; i < columnCount; i++){
         const game = document.querySelector('#game')
         const column = document.createElement('div')
         column.classList.add('column')
@@ -12,7 +12,7 @@ function displayGame() {
 }
 
 function displayColumn(column) {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < rowCount; i++) {
         const tile = document.createElement('div')
         tile.classList.add('tile')
         tile.textContent = 'Hello World'
@@ -26,5 +26,8 @@ function colorGrid(tile) {
     tile.style.backgroundColor = 'red'
 }
 
+
+let rowCount = 16;
+let columnCount = 16;
 
 displayGame()
