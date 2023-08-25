@@ -16,8 +16,14 @@ function displayColumn(column) {
         const tile = document.createElement('div')
         tile.classList.add('tile')
         tile.textContent = 'Hello World'
+        tile.addEventListener('mouseenter', function() {colorGrid(tile)})
         column.appendChild(tile)
     }
+}
+
+
+function colorGrid(tile) {
+    tile.style.backgroundColor = 'red'
 }
 
 
