@@ -26,8 +26,29 @@ function colorGrid(tile) {
     tile.style.backgroundColor = 'red'
 }
 
+function resetGrid() {
+    location.reload()
+}
+
+function getParams() {
+    let newRowCount = prompt("Please Enter your Desired Rows:", rowCount);
+    let newColumnCount = prompt("Please enter your desired Columns:", columnCount);
+    if (newRowCount && newColumnCount && !isNaN(newRowCount) && !isNaN(newColumnCount)) {
+        rowCount = parseInt(newRowCount)
+        columnCount = parseInt(newColumnCount)
+        resetGrid()
+    } else {
+        alert("Invalid Input")
+    }
+
+}
+
 
 let rowCount = 16;
 let columnCount = 16;
 
+const resetButton = document.querySelector('#reset-button')
+resetButton.onclick = getParams
+
 displayGame()
+
