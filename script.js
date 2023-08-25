@@ -2,10 +2,9 @@ function displayGame() {
     let i = 0;
     for (let i = 0; i < columnCount; i++){
         const game = document.querySelector('#game')
+        configureGrid(game)
         const column = document.createElement('div')
-        column.classList.add('column')
-        column.style.display = 'flex'
-        column.style.flexDirection = 'column'
+        configureColumn(column)
         displayColumn(column)
         game.appendChild(column)
     }
@@ -14,9 +13,7 @@ function displayGame() {
 function displayColumn(column) {
     for (let i = 0; i < rowCount; i++) {
         const tile = document.createElement('div')
-        tile.classList.add('tile')
-        tile.textContent = 'Hello World'
-        tile.addEventListener('mouseenter', function() {colorGrid(tile)})
+       configureTile(tile)
         column.appendChild(tile)
     }
 }
@@ -47,6 +44,31 @@ function getParams() {
         alert("Invalid Input")
     }
 
+}
+
+function configureColumn(column) {
+    column.classList.add('column')
+    column.style.display = 'flex'
+    column.style.alignItems = 'stretch'
+    column.style.flexDirection = 'column'
+    column.style.flexBasis = '100%'
+}
+
+function configureGrid(game) {
+    game.style.display = 'flex'
+    game.style.alignItems = 'stretch'
+    game.style.flexDirection = 'row'
+    game.style.width = '960px'
+    game.style.height = '960px'
+}
+
+function configureTile(tile) {
+    tile.classList.add('tile')
+    // tile.textContent = 'Hello World'
+    tile.addEventListener('mouseenter', function() {colorGrid(tile)})
+    tile.style.display = 'flex'
+    tile.style.flexGrow = 1
+    tile.style.margin = '3px'
 }
 
 
